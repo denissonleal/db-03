@@ -3,7 +3,7 @@ db.users.insert({
 	email: 'mfc2@cin.ufpe.br',
 	cpf: '111.111.111-11',
 	born_date: '1983-02-24',
-	objectives: {
+	objectives: {quit
 		cache_back: 3000.00,
 		reservation: 3000.0*6,
 	},

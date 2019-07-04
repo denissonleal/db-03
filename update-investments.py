@@ -3,7 +3,7 @@ from bson.objectid import ObjectId
 import pprint
 import pandas as pd
 
-cliente = MongoClient('172.18.0.1', 27017)
+cliente = MongoClient('localhost', 27017)
 
 db = cliente.db_03
 

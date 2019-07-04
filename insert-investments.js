@@ -9,3 +9,8 @@ db.investments.insert({
 	name: 'Vale S.A.',
 	type: 'V',
 })
+db.investments.insert({
+code: 'PMAM3',
+name: 'Paranapanema S.A.',
+type: 'V'
+})
