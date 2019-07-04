@@ -1,7 +1,15 @@
 # db-03
 terceiro trabalho de db - nosql
 
+
+## Limpar dados
+
+```bash
+mongo db_03 --eval "db.dropDatabase()"
+```
+
 ## Inserir investimentos
+
 ```bash
  mongo db_03 < insert-investments.js
 ```
