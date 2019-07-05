@@ -14,3 +14,15 @@ code: 'PMAM3',
 name: 'Paranapanema S.A.',
 type: 'V'
 })
+
+db.investments.insert({
+	code: 'BIDI4',
+	name: 'Banco Inter S.A.',
+	type: 'V'
+	})
+
+db.investments.insert({
+	code: 'BRDT3',
+	name: 'Petrobras Distribuidora S.A.',
+	type: 'V'
+	})
