@@ -11,7 +11,7 @@ mongo db_03 --eval "db.dropDatabase()"
 ## Inserir investimentos
 
 ```bash
- mongo db_03 < insert-investments.js
+mongo db_03 < insert-investments.js
 ```
 
 ## Atualizar investimentos
