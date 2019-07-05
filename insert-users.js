@@ -11,7 +11,7 @@ db.users.insert({
 })
 
 db.users.insert({
-	nome: 'Maria Joaquina de Araujo',
+	name: 'Maria Joaquina de Araujo',
 	email: 'maria@gmail.com',
 	cpf: '444.444.444-44',
 	born_date: '1991-09-12',
@@ -23,7 +23,7 @@ db.users.insert({
 })
 
 db.users.insert({
-	nome: 'Antonio Pedro Filho',
+	name: 'Antonio Pedro Filho',
 	email: 'Antonio@hotmail.com',
 	cpf: '321.321.321-32',
 	born_date: '1995-10-22',
@@ -35,13 +35,25 @@ db.users.insert({
 })
 
 db.users.insert({
-	nome: 'Eike Batista Junior',
+	name: 'Eike Batista Junior',
 	email: 'Eike@hotmail.com',
 	cpf: '999.999.999-99',
 	born_date: '1980-01-16',
 	objectives: {
 		cache_back: 10700.00,
 		reservation: 33200.0*6,
+	},
+	notifications: [],
+})
+
+db.users.insert({
+	name: 'Denisson Basto Leal',
+	email: 'dbl@gmail.com',
+	cpf: '555.555.555-55',
+	born_date: '1992-10-05',
+	objectives: {
+		cache_back: 70000.00,
+		reservation: 27800.0*6,
 	},
 	notifications: [],
 })
