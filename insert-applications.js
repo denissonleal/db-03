@@ -6,7 +6,7 @@ db.applications.insert({
 	investment_id: investment._id,
 	value: investment.value,
 	amount: 10,
-	dividend: [],
+	dividends: [],
 });
 
 user = db.users.findOne({ email: 'Antonio@hotmail.com'});
@@ -17,7 +17,7 @@ db.applications.insert({
 	investment_id: investment._id,
 	value: investment.value,
 	amount: 25,
-	dividend: [],
+	dividends: [],
 })
 
 user = db.users.findOne({ email: 'Eike@hotmail.com'});
@@ -28,7 +28,7 @@ db.applications.insert({
 	investment_id: investment._id,
 	value: investment.value,
 	amount: 102,
-	dividend: [],
+	dividends: [],
 })
 
 user = db.users.findOne({ email: 'dbl@gmail.com'});
@@ -39,7 +39,7 @@ db.applications.insert({
 	investment_id: investment._id,
 	value: investment.value,
 	amount: 57,
-	dividend: [],
+	dividends: [],
 });
 
 user = db.users.findOne({ email: 'maria@gmail.com'});
@@ -50,5 +50,5 @@ db.applications.insert({
 	investment_id: investment._id,
 	value: investment.value,
 	amount: 14,
-	dividend: [],
+	dividends: [],
 });

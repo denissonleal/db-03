@@ -9,12 +9,32 @@ db.getCollection('users').find({}).sort({"_id":-1});                            
 db.users.find().pretty();                                                        // pretty - Exibir todos os usuarios da base de uma forma estruturada.
 
 db.applications.mapReduce(
-	function() { emit(this.user_id, this.value*this.amount) },
+	function() {
+		emit(this.user_id, this.value*this.amount)
+	},
 	function(key, value) {
 		return value.reduce((acc, val) => acc+val);
 	},
 	{ out: 'total_invested' }
 );
+
+db.total_invested.renameCollection('total_investeds')
+
+let investment = db.investments.findOne({ 'code': 'VALE3'});
+
+db.applications.update(
+	{
+		investment_id: investment._id,
+	},
+	{
+		$push: {
+			dividends: {
+				date: '2019-07-06',
+				value: 17.50
+			}
+		},
+	}
+)
 
 // Consutas Extras
 db.getCollection('users').distinct('email')             // Retornar os emails sem repetir o registro.
