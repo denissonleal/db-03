@@ -1,3 +1,5 @@
+db.users.createIndex({ name: 'text' });
+
 db.users.insert({
 	name: 'Mailton Fernandes de Carvallho',
 	email: 'mfc2@cin.ufpe.br',

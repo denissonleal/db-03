@@ -36,5 +36,18 @@ db.applications.update(
 	}
 )
 
+db.users.update({
+	cpf: '555.555.555-55'
+}, {
+	$set: {
+		name: "Denisson Augusto Bastos Leal",
+		email: "dabl@gmail.com",
+	}
+})
+
+db.users.find({
+	$text: { $search: "denisson leal" }
+});
+
 // Consutas Extras
 db.getCollection('users').distinct('email')             // Retornar os emails sem repetir o registro.
