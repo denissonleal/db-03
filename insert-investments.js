@@ -9,20 +9,21 @@ db.investments.insert({
 	name: 'Vale S.A.',
 	type: 'V',
 })
+
 db.investments.insert({
-code: 'PMAM3',
-name: 'Paranapanema S.A.',
-type: 'V'
+	code: 'PMAM3',
+	name: 'Paranapanema S.A.',
+	type: 'V'
 })
 
 db.investments.insert({
 	code: 'BIDI4',
 	name: 'Banco Inter S.A.',
 	type: 'V'
-	})
+})
 
 db.investments.insert({
 	code: 'BRDT3',
 	name: 'Petrobras Distribuidora S.A.',
 	type: 'V'
-	})
+})
