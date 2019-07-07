@@ -8,6 +8,8 @@ db.getCollection('investments').find({'name':{$exists:true}}).count();          
 db.getCollection('users').find({}).sort({"_id":-1});                             // sort - Ordena do ultimo que foi add ao primeiro
 db.users.find().pretty();                                                        // pretty - Exibir todos os usuarios da base de uma forma estruturada.
 db.investments.find({type: {$all:['V']}})
+db.applications.find({amount: {$gte: 25}})
+db.applications.aggregate([{$match: {}}, {$group: {_id: '$value', total_amount:{$max: '$amount'}}}])
 
 db.applications.mapReduce(
 	function() {
