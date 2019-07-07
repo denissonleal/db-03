@@ -27,3 +27,9 @@ db.investments.insert({
 	name: 'Petrobras Distribuidora S.A.',
 	type: 'V'
 })
+
+db.investments.insert({
+	code: 'F00000Q3U5',
+	name: 'ITAÚ PRIVATE PREV ULTRA NTN-B 2024 RENDA FIXA FUNDO DE INVESTIMENTO EM COTA .',
+	type: 'F'
+})

@@ -7,6 +7,7 @@ db.getCollection('users').find({},{'name':1,'born_date':1,_id:0}).skip(2);      
 db.getCollection('investments').find({'name':{$exists:true}}).count();           // Exist - verifica se na coleção existe ou não determinado campo.
 db.getCollection('users').find({}).sort({"_id":-1});                             // sort - Ordena do ultimo que foi add ao primeiro
 db.users.find().pretty();                                                        // pretty - Exibir todos os usuarios da base de uma forma estruturada.
+db.investments.find({type: {$all:['V']}})
 
 db.applications.mapReduce(
 	function() {
@@ -48,6 +49,10 @@ db.users.update({
 db.users.find({
 	$text: { $search: "denisson leal" }
 });
+
+
+
+
 
 // Consutas Extras
 db.getCollection('users').distinct('email')             // Retornar os emails sem repetir o registro.
