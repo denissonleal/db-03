@@ -151,6 +151,14 @@ db.investments.aggregate({
 })
 
 
+db.users.aggregate([
+	{
+		$project: {
+			$strcasecmp: [ '$name', 'Denisson Augusto Bastos Leal' ]
+		}
+	}
+])
+
 
 // Consutas Extras
 db.getCollection('users').distinct('email')             // Retornar os emails sem repetir o registro.
