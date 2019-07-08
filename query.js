@@ -30,6 +30,18 @@ db.total_invested.renameCollection('total_investeds')
 
 let investment = db.investments.findOne({ 'code': 'VALE3'});
 
+db.users.save({
+	name: 'João Giberto da Silva',
+	email: 'joao@gmail.com',
+	cpf: '333.444.555-66',
+	born_date: '1987-20-03',
+	objectives: {
+		cache_back: 40000.00,
+		reservation: 23500.0*6,
+	},
+	notifications: [],
+})
+
 db.applications.update(
 	{
 		investment_id: investment._id,
