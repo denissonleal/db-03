@@ -135,5 +135,22 @@ db.applications.aggregate([
 ])
 
 
+db.investments.aggregate({
+	$match: { type: 'V' },
+}, {
+	$project: {
+		code: 1,
+		prices: {
+			$filter: {
+				input: "$prices",
+				as: "price",
+				cond: { $gte: [ "$$price.date", '2019-07-01' ] }
+			}
+		}
+	}
+})
+
+
+
 // Consutas Extras
 db.getCollection('users').distinct('email')             // Retornar os emails sem repetir o registro.
