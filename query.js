@@ -16,6 +16,7 @@ db.users.aggregate([{$unwind: '$objectives'}])
 db.users.aggregate([{$match: {name: 'Denisson Basto Leal'}}])
 db.users.aggregate([{$project: {Name_cpf: {$concat: ['$name','-','$cpf']}}}])
 db.investments.aggregate([{$project:{ name: 'Unitas DTVM S.A.', testeString: {$substr: ['$code',0,3]}}}])
+db.users.aggregate([{ $sample: {size: 2}}])
 
 db.applications.mapReduce(
 	function() {
