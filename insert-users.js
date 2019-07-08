@@ -71,4 +71,3 @@ db.users.save({
 	},
 	notifications: [],
 })
-

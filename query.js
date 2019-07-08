@@ -16,6 +16,9 @@ db.applications.aggregate([{ $project: {user_id: 'user.id', investment: 'investm
 
 db.investments.aggregate([{$project:{code:{$toUpper:'$code'},name:{$toUpper:'$name'},type:{$toUpper: '$type'}}}]).pretty()
 
+db.users.aggregate([{$unwind: '$objectives'}])
+db.users.aggregate([{$match: {name: 'Denisson Basto Leal'}}])
+
 db.applications.mapReduce(
 	function() {
 		emit(this.user_id, this.value*this.amount)
