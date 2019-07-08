@@ -75,6 +75,8 @@ db.users.find({
 let user = db.users.findOne({ cpf: '555.555.555-55' });
 
 db.applications.aggregate([{
+	$match: { user_id: user._id },
+}, {
 	$project: {
 		investment_id: 1,
 		dividend_amount: {
@@ -86,6 +88,51 @@ db.applications.aggregate([{
 		},
 	},
 }])
+
+// verifica quais subiram mais de 30% nos 6 meses de historico
+db.investments.find({
+	type: 'V',
+	$where: function() {
+		return this.value / this.prices[0].value > 1.3;
+	}
+}, {
+	code: 1,
+	_id: 0,
+})
+
+// qual pagou mais dividendos, em quantidade
+let user = db.users.findOne({ cpf: '321.321.321-32' });
+
+db.applications.aggregate([{
+	$match: { user_id: user._id },
+}, {
+	$unwind: "$dividends"
+}, {
+	$sortByCount: "$dividends"
+}])
+
+
+let user = db.users.findOne({ cpf: '321.321.321-32' });
+
+db.applications.aggregate([
+{
+	$match: { user_id: user._id },
+}, {
+	$lookup: {
+		from: 'investments',
+		localField: 'investment_id',
+		foreignField: '_id',
+		as: 'investments'
+	}
+}, {
+	$project: {
+		'investments.value': 1,
+		'investments.code': 1,
+		'value' : 1,
+		'amount' : 1,
+	}
+}
+])
 
 
 // Consutas Extras
