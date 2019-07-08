@@ -11,6 +11,11 @@ db.investments.find({type: {$all:['V']}})
 db.applications.find({amount: {$gte: 25}})
 db.applications.aggregate([{$match: {}}, {$group: {_id: '$value', total_amount:{$max: '$amount'}}}])
 
+db.applications.aggregate([{ $project: {user_id: 'user.id', investment: 'investment.id', total: {$multiply:['$value',
+'$amount'] }} }])
+
+db.investments.aggregate([{$project:{code:{$toUpper:'$code'},name:{$toUpper:'$name'},type:{$toUpper: '$type'}}}]).pretty()
+
 db.applications.mapReduce(
 	function() {
 		emit(this.user_id, this.value*this.amount)
