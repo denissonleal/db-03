@@ -49,5 +49,22 @@ db.users.find({
 	$text: { $search: "denisson leal" }
 });
 
+
+let user = db.users.findOne({ cpf: '555.555.555-55' });
+
+db.applications.aggregate([{
+	$project: {
+		investment_id: 1,
+		dividend_amount: {
+			$cond: {
+				if: { $isArray: "$dividends" },
+				then: { $size: "$dividends" },
+				else: 0,
+			},
+		},
+	},
+}])
+
+
 // Consutas Extras
 db.getCollection('users').distinct('email')             // Retornar os emails sem repetir o registro.
