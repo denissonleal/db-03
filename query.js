@@ -173,3 +173,44 @@ db.applications.aggregate([
 
 // Consutas Extras
 db.getCollection('users').distinct('email')             // Retornar os emails sem repetir o registro.
+
+db.applications.aggregate([
+
+	{$group:{ 
+		_id: '$user_id', 
+		amounts: {
+			$sum: '$amount'}
+		} 
+	},
+	{$sort: 
+		{'amounts': -1}
+	}
+])
+
+db.users.aggregate([
+	{$match: 
+		{born_date: 
+			{$gte:'1991-09-12'}
+		}
+	}, 
+	{$group: 
+		{_id: 
+			'$name', total_cache: 
+			{$sum: 
+				'$objectives.cache_back'
+			}
+		}
+	},{$sort: 
+		{'total_cache': -1}
+	}
+])
+db.users.aggregate([
+	{$group: 
+		{_id: '$name', 
+		total_cache:{
+			$sum: '$objectives.cache_back'}
+		}
+	}
+])
+
+
