@@ -159,15 +159,21 @@ db.users.aggregate([
 	}
 ])
 
-db.applications.aggregate([ 
-	{ $group: 
-		{ _id: 
-			{ user_id: '$user_id' 
-		}, 
-		amount: 
-		{ $first: "$amount" }}
+db.investments.aggregate([
+	{
+		$project: {
+			_id: -1,
+			code: 1,
+			union_prices: { 
+				$setUnion: [ 
+					"$prices.date", 
+					['2019-07-01'] 
+				] 
+			},
+		}
 	}
-])
+	])
+	
 
 // Consutas Extras
 db.getCollection('users').distinct('email')             // Retornar os emails sem repetir o registro.
