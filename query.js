@@ -159,20 +159,16 @@ db.users.aggregate([
 	}
 ])
 
-db.investments.aggregate([
-	{
-		$project: {
-			_id: -1,
-			code: 1,
-			union_prices: { 
-				$setUnion: [ 
-					"$prices.date", 
-					['2019-07-01'] 
-				] 
-			},
-		}
+db.applications.aggregate([
+	{ $sort: { amount: -1 } },
+	{ 
+		$group: { 
+			_id: { user_id: '$user_id' },
+			amount: { $first: "$amount" }
+		 }
 	}
-	])
+])
+
 	
 
 // Consutas Extras
