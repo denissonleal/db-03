@@ -159,6 +159,15 @@ db.users.aggregate([
 	}
 ])
 
+db.applications.aggregate([ 
+	{ $group: 
+		{ _id: 
+			{ user_id: '$user_id' 
+		}, 
+		amount: 
+		{ $first: "$amount" }}
+	}
+])
 
 // Consutas Extras
 db.getCollection('users').distinct('email')             // Retornar os emails sem repetir o registro.
